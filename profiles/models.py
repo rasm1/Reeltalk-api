@@ -4,6 +4,9 @@ from django.db.models.signals import post_save
 
 
 class Profile(models.Model):
+    """
+    Profile model, default image for profile is from cloudinary
+    """
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
