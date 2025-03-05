@@ -17,7 +17,7 @@ class Post(models.Model):
         upload_to='images/', default='../default_post_k5wqe1', blank=True
     )
     movie_spoilers = models.BooleanField(
-        verbose_name='Does this post contain spoilers?')
+        verbose_name='Does this post contain spoilers?', default=False)
     movie_positives = models.CharField(max_length=255, blank=True, null=True)
     movie_negatives = models.CharField(max_length=255, blank=True, null=True)
     
