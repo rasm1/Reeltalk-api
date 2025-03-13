@@ -57,7 +57,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+DEBUG =  True#'DEV' in os.environ
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://reeltalk-api-a79479495f97.herokuapp.com']
 
