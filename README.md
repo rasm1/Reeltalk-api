@@ -2,7 +2,7 @@
 
 **Advanced Front-End Portfolio Project(PP5) - Code Institute**
 
-The *Reeltalk API* is the backend for the reeltalk-frontend application, built using Django Rest Framework. It serves as the foundation for a social network ([Reeltalk-frontend NOG TE IMPLEMENTEREN ](https://groovemates-frontend-b3335269700f.herokuapp.com/)) focused on sharing opinions on movies<br>
+The *Reeltalk API* is the backend for the reeltalk-frontend application, built using Django Rest Framework. It serves as the foundation for a social network [Reeltalk-frontend ](https://reeltalk-project-74cd4a21e230.herokuapp.com/) focused on sharing opinions on movies<br>
 
 *Reeltalk API* is designed for users who want to share their opinion on their favorite movies. Posts can be created to show and promote their favorite movies so that other users can engage with them. The post functionality includes: a title, a movie title, content, an image of your favorite movie, moviepostives & negatives as well as a spoiler warning.<br>
 
@@ -19,7 +19,7 @@ _followers_: Facilitates the following and tracking of other users' activities.<
 This API is designed to be consumed by a React frontend, providing a seamless experience for users looking to connect and engage in activities together.
 <br>
 The deployed API can be found here: [Reeltalk API](https://reeltalk-api-a79479495f97.herokuapp.com/)<br>
-The deployed React project can be found [here] < NOG TE IMPLEMENTEREN<br>
+The deployed React project can be found [here](https://reeltalk-project-74cd4a21e230.herokuapp.com/) <br>
 The link for the GitHub repository to the associated front end can be found [here](https://github.com/rasm1/Reeltalk-api)
 
 ## Table of Contents
@@ -65,7 +65,7 @@ The Kanban board for reeltalk user stories can be seen [here](https://github.com
 
 ## Structure
 
-The database schema was crafted during the planning phase of the project. [draw.io NOG TE IMPLEMENTEREN](https://dbdiagram.io/home). 
+The database schema was crafted during the planning phase of the project.
 
 ## Database<br>
 I used a PostgreSQL provided by Code Institute as relational database.<br>
@@ -267,7 +267,7 @@ This site is deployed using Heroku. To deploy it from its GitHub repository to H
 13. Create a _Procfile_ in the root directory and add *web: gunicorn fv_api.wsgi*
 13. In Heroku enable the automatic deploy or manually deploy the code from the main branch
 
-To see the [view of the live site NOG TE IMPLEMENTEREN]() click on the _Open app_ button in the top right corner or, if you enabled automatic deploy (step 13), log in to GitHub, navigate to the repository for this project by selecting [NOG TE IMPLEMENTEREN](https://github.com/Pramilashanmugam/GrooveMates_backend), click on the _Deployments_ heading and choose in the _Environments_ section GrooveMates_backend. On top of the latest deployment is the link to the [live site NOG TE IMPLEMENTEREN](https://groovemates-backend-b16861eb6026.herokuapp.com/).<br>
+ click on the _Open app_ button in the top right corner or, if you enabled automatic deploy (step 13), log in to GitHub, navigate to the repository for this project by selecting [Reeltalk-api](https://github.com/rasm1/Reeltalk-api), click on the _Deployments_ heading and choose in the _Environments_ section GrooveMates_backend. On top of the latest deployment is the link to the [live site ](https://reeltalk-api-a79479495f97.herokuapp.com/).<br>
 
 ### Local deployment
 
