@@ -1,9 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+
 
 class Post(models.Model):
-    
     """
     Post model, related to 'owner', i.e. a User instance.
     Default image set so that we can always reference image.url.
@@ -14,8 +13,9 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
     movie_title = models.CharField(max_length=255)
-    image = CloudinaryField('images/')
-    
+    image = models.ImageField(
+        upload_to='images/', default='../default_post_k5wqe1', blank=True
+    )
     movie_spoilers = models.BooleanField(
         verbose_name='Does this post contain spoilers?', default=False)
     movie_positives = models.CharField(max_length=255, blank=True, null=True)
