@@ -11,17 +11,7 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
-    image = serializers.SerializerMethodField()
-
-    def get_image(self, obj):
-        if obj.image:
-            # Modify the URL to replace the Heroku URL with Cloudinary URL
-            return obj.image.url.replace(
-                "https://reeltalk-api-a79479495f97.herokuapp.com/media/images/",
-                "https://res.cloudinary.com/dwqek0e9x/image/upload/"
-            )
-        return "https://res.cloudinary.com/dbkvb78gd/image/upload/"
-
+   
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
             raise serializers.ValidationError(
