@@ -23,10 +23,14 @@ CLOUDINARY_STORAGE = {
 
 MEDIA_URL = '/media/'
 STORAGES = {
-"default": {
-"BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
 }
-}
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
