@@ -16,7 +16,7 @@ class Profile(models.Model):
     image = CloudinaryField(
         'images/',
         default='https://res.cloudinary.com/dbkvb78gd/image/upload/v1738434171/default_profile_t0cnvn.jpg')
-    
+
     class Meta:
         ordering = ['-created_at']
 

@@ -20,7 +20,7 @@ class Post(models.Model):
         verbose_name='Does this post contain spoilers?', default=False)
     movie_positives = models.CharField(max_length=255, blank=True, null=True)
     movie_negatives = models.CharField(max_length=255, blank=True, null=True)
-    
+
     class Meta:
         ordering = ['-created_at']
 

@@ -7,7 +7,6 @@ from .serializers import PostSerializer
 from django.db.models import Count
 
 
-
 class PostList(generics.ListCreateAPIView):
     """
     List posts or create a post if logged in
@@ -38,7 +37,6 @@ class PostList(generics.ListCreateAPIView):
         'comments_count',
         'likes__created_at'
     ]
-    
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

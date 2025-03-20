@@ -61,7 +61,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     'localhost',
-    '127.0.0.1', 
+    '127.0.0.1',
     'https://reeltalk-api-a79479495f97.herokuapp.com',
     'reeltalk-api-a79479495f97.herokuapp.com'
      ]
@@ -154,7 +154,7 @@ else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-    
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -173,7 +173,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 
 # Internationalization
