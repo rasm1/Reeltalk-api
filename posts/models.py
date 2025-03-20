@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from cloudinary.models import CloudinaryField
 
 class Post(models.Model):
     """
@@ -13,9 +13,8 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
     movie_title = models.CharField(max_length=255)
-    movie_image = models.ImageField(
-        upload_to='images/', default='../default_post_k5wqe1', blank=True
-    )
+    image = CloudinaryField('images/')
+    
     movie_spoilers = models.BooleanField(
         verbose_name='Does this post contain spoilers?', default=False)
     movie_positives = models.CharField(max_length=255, blank=True, null=True)
