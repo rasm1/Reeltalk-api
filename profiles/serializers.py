@@ -8,6 +8,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     serializer for profile
     """
     owner = serializers.ReadOnlyField(source='owner.username')
+    profile_image = serializers.ReadOnlyField(source="owner.profile.image.url")
     is_owner = serializers.SerializerMethodField()
     following_id = serializers.SerializerMethodField()
     posts_count = serializers.ReadOnlyField()
@@ -30,7 +31,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = [
-            'id', 'owner', 'name',  'created_at', 'updated_at',
+            'id', 'owner', 'name', 'profile_image', 'created_at', 'updated_at',
             'content', 'image', 'is_owner', 'following_id',
             'posts_count', 'followers_count', 'following_count',
         ]
