@@ -14,7 +14,8 @@ class Post(models.Model):
     content = models.TextField(blank=True)
     movie_title = models.CharField(max_length=255)
     image = models.ImageField(
-        upload_to='images/', default='../default_post_k5wqe1', blank=True
+        upload_to='images/', default='../default_post_k5wqe1', blank=True,
+        null=True
     )
     movie_spoilers = models.BooleanField(
         verbose_name='Does this post contain spoilers?', default=False)
