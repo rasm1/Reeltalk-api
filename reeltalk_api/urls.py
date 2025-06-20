@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import root_route, logout_route
-from .views import create_superuser_route
 
 urlpatterns = [
     path('', root_route),
@@ -32,5 +31,4 @@ urlpatterns = [
     path('', include('comments.urls')),
     path('', include('likes.urls')),
     path('', include('followers.urls')),
-    path("create-superuser/", create_superuser_route),
 ]
