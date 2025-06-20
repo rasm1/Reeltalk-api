@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .settings import (
@@ -36,3 +37,15 @@ def logout_route(request):
         secure=JWT_AUTH_SECURE,
     )
     return response
+
+@api_view()
+def create_superuser_route(request):
+    if User.objects.filter(username='admin').exists():
+        return Response({"message": "Superuser already exists."})
+    
+    User.objects.create_superuser(
+        username='admin',
+        email='admin@example.com',
+        password='adminpassword123'
+    )
+    return Response({"message": "Superuser created!"})
