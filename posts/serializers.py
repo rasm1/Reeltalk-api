@@ -16,7 +16,6 @@ class PostSerializer(serializers.ModelSerializer):
     comments_count = serializers.ReadOnlyField()
     image = serializers.ImageField(required=False, allow_null=True)
 
-
     def validate_image(self, value):
         """
         validator for image size
@@ -33,7 +32,7 @@ class PostSerializer(serializers.ModelSerializer):
         if value.image.height > 4096:
             raise serializers.ValidationError('Image height too large')
 
-        return value    
+        return value
 
     def get_is_owner(self, obj):
         request = self.context['request']
