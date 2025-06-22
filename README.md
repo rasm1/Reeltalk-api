@@ -174,6 +174,7 @@ When updating the profile iamge in edit profile page, when clicking save the ava
 - [GitHub](https://github.com/) was used to save and store the files for the website.
 - [GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) have been used for Agile sprint planning and task tracking.
 - [Heroku](https://www.heroku.com) was used to deploy the application.
+- [Render](https://render.com) After technical difficulties with Heroku, render was used to deploy the project.
 - [VSCode](https://code.visualstudio.com) was used as IDE. 
 - [Code Insitute Database Maker](https://dbs.ci-dbs.net/) PostgreSQL database hosting for this project
 - [remove.bg](https://www.remove.bg/upload) was used to remove the background from displayed images.
@@ -265,26 +266,38 @@ Validates that users cannot delete posts owned by others. The server should retu
 
 ## Deployment
 
-### Heroku
-This site is deployed using Heroku. To deploy it from its GitHub repository to Heroku, I took the following steps:
+### Render
+This site is deployed using Render. To deploy it from its GitHub repository to Render, I took the following steps:
 
-1. Create a list of requirements in the requirements.txt file by using the command _pip3 freeze > requirements.txt_
-2. Log in (or sign up) to Heroku
-3. Click on the _New_ button and select _Create new app_
-4. Give it a unique name and choose the region _Europe_
-5. Click the *Settings* tab, go to the _Config Vars_ section and click on the _Reveal Config Vars_ button
-6. Add all variables from *env.py* to _ConfigVars_ of Heroku
-![Screenshot of config vars](documentation/readme/heroku_details.png)<br>
-7. Click the _Add_ button
-8. Click the *Deploy* tab, go to the _Deployment method_ section, select _GitHub_ and confirm this selection by clicking on the _Connect to Github_ button
-9. Search for the repository name on github Reeltalk_api and click the _Connect_ button
-10. Add in the setting.py the Heroku app URL into ALLOWED HOSTS<br>
-11. Gather all static files of the project by using the command _python3 manage.py collectstatic_ in the terminal
-12. Make sure that DEBUG=FALSE in settings.py
-13. Create a _Procfile_ in the root directory and add *web: gunicorn fv_api.wsgi*
-13. In Heroku enable the automatic deploy or manually deploy the code from the main branch
-
- click on the _Open app_ button in the top right corner or, if you enabled automatic deploy (step 13), log in to GitHub, navigate to the repository for this project by selecting [Reeltalk-api](https://github.com/rasm1/Reeltalk-api), click on the _Deployments_ heading and choose in the _Environments_ section GrooveMates_backend. On top of the latest deployment is the link to the [live site ](https://reeltalk-api-a79479495f97.herokuapp.com/).<br>
+1. Select New+ and select "web service"
+2. Log in (or sign up) to Render
+3. Connect your github account to Render
+4. Ensure all repostories are sleected and click "install"
+5. Create a file in the root directory called "build.sh"
+6. Paste the following code into build.sh: 
+ set -o errexit
+ pip install -r requirements.txt
+ python manage.py makemigrations && python manage.py migrate
+7. Save the file
+8. In the settings.py add the following code below ALLOWED_HOSTS:
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+ if RENDER_EXTERNAL_HOSTNAME:
+   ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+9. Delete the heroku Procfile if present
+10. Add, commit and push changes to github
+11. click new+, select web service and connect relevant repo.
+12. Root directory usually remains blank
+13. select the region closest to your location
+13. keep branch on main or master unless specified otherwise.
+14. setbuild command to: ./build.sh
+15. set the start command to: gunicorn reeltalk-api.wsgi:application
+16. select the free plan
+17. scroll to "advanced"
+18. click add environment variable
+19. Add a key: WEB_CONCURRENCY and set it's value to: 4
+20. copy and pest the env.py file
+21. click "ADD secret File" and paste into file contents.
+22. click save [step by step guide for code institute](https://code-institute-students.github.io/deployment-docs/deployments)
 
 ### Local deployment
 
