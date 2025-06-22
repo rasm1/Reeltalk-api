@@ -2,7 +2,7 @@
 
 **Advanced Front-End Portfolio Project(PP5) - Code Institute**
 
-The *Reeltalk API* is the backend for the reeltalk-frontend application, built using Django Rest Framework. It serves as the foundation for a social network [Reeltalk-frontend ](https://reeltalk-project-74cd4a21e230.herokuapp.com/) focused on sharing opinions on movies<br>
+The *Reeltalk API* is the backend for the reeltalk-frontend application, built using Django Rest Framework. It serves as the foundation for a social network [Reeltalk-frontend ](https://reeltalk-9iif.onrender.com/) focused on sharing opinions on movies<br>
 
 *Reeltalk API* is designed for users who want to share their opinion on their favorite movies. Posts can be created to show and promote their favorite movies so that other users can engage with them. The post functionality includes: a title, a movie title, content, an image of your favorite movie, moviepostives & negatives as well as a spoiler warning.<br>
 
@@ -18,9 +18,9 @@ _followers_: Facilitates the following and tracking of other users' activities.<
 <br>
 This API is designed to be consumed by a React frontend, providing a seamless experience for users looking to connect and engage in activities together.
 <br>
-The deployed API can be found here: [Reeltalk API](https://reeltalk-api-a79479495f97.herokuapp.com/)<br>
-The deployed React project can be found [here](https://reeltalk-project-74cd4a21e230.herokuapp.com/) <br>
-The link for the GitHub repository to the associated front end can be found [here](https://github.com/rasm1/Reeltalk-api)
+The deployed API can be found here: [Reeltalk API](https://reeltalk-api.onrender.com/)<br>
+The deployed React project can be found [here](https://reeltalk-9iif.onrender.com/) <br>
+The link for the GitHub repository to the associated front end can be found [here](https://github.com/rasm1/Reeltalk)
 
 ## Table of Contents
 
@@ -54,7 +54,7 @@ The link for the GitHub repository to the associated front end can be found [her
 
 ## User Experience
 
-I used an Agile methodology approach to plan this project. This was implemented through the GitHub Project board with user stories and tasks.
+I used an Agile methodology approach to plan this project. This was implemented through the GitHub Project board with epics, user stories and acceptance criteria .
 Each user story was classified with a label according to MoSCoW prioritization.<br>
 
 
@@ -76,9 +76,9 @@ I used a PostgreSQL provided by Code Institute as relational database.<br>
   - A Profile belongs to one User.
   - A Post is created by one User.
   - A User can create many posts.
-  - A User can like a Post.
-  - A User can create a Comment for a Post. 
-  - A Comment belongs to one User and one Post
+  - A User can like many Posts.
+  - A User can create many comments for a Post. 
+  - A Comments belongs to one User and one Post
   - A User can follow another User.
 
 ### Models
@@ -143,6 +143,23 @@ Images posted by users would be prefixed with the deployed heroku URL instead of
 ### 500 error in post model
 <br>
 Due to the conversion of imagefield to cloudinaryfield the /posts/ endpoint threw a 500 error.
+<br>
+
+### Post image shows broken image
+<br>
+Imagefield was required so when an invalid (or no) image was uploaded
+it displayed a broken image
+<br>
+
+### profile edit page did not display profile image
+<br>
+Due to a mismatch of image names between the front and backend the avar 
+image did not display in profile edit page.
+<br>
+
+### profile edit page did not update the avatar image
+<br>
+When updating the profile iamge in edit profile page, when clicking save the avatar image did not update due to a naming mismatch between front and backend.
 <br>
 
 
